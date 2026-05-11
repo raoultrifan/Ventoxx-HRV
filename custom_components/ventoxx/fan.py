@@ -2,6 +2,8 @@ import math
 import logging
 from typing import Any
 
+from homeassistant.components.fan import FanEntity, FanEntityFeature
+
 from homeassistant.components.fan import (
     FanEntity,
     FanEntityFeature,
@@ -26,6 +28,17 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 class VentoxxFan(CoordinatorEntity, FanEntity):
     """Representation of a Ventoxx HRV unit as a Fan."""
 
+    @property
+    def supported_features(self) -> FanEntityFeature:
+        """Flag supported features."""
+        return (
+            FanEntityFeature.TURN_ON
+            | FanEntityFeature.TURN_OFF
+            | FanEntityFeature.SET_SPEED
+            | FanEntityFeature.DIRECTION
+            | FanEntityFeature.PRESET_MODE
+        )
+        
     def __init__(self, coordinator):
         """Initialize the fan."""
         super().__init__(coordinator)
