@@ -14,7 +14,8 @@ from .const import DOMAIN, CONF_HOST
 from .api import VentoxxApiClient
 
 _LOGGER = logging.getLogger(__name__)
-PLATFORMS: list[Platform] = [Platform.FAN]
+#PLATFORMS: list[Platform] = [Platform.FAN]
+PLATFORMS: list[Platform] = [Platform.FAN, Platform.SENSOR]
 
 class VentoxxDataUpdateCoordinator(DataUpdateCoordinator):
     """Class to manage fetching Ventoxx data."""
