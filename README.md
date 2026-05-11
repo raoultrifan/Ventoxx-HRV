@@ -77,6 +77,60 @@ ventoxx_cooking_mode:
           target: { entity_id: fan.ventoxx_kitchen }
           data: { direction: "reverse" }
 
+## Example Dashboard Card
+This custom dashboard uses the automatically generated mode sensors to display what the system is doing, alongside buttons to trigger the custom scripts you built above.
+
+Add a Manual Card to your dashboard and paste this YAML:
+
+YAML
+type: vertical-stack
+cards:
+  - type: entities
+    title: Ventoxx Master Control
+    entities:
+      - entity: sensor.ventoxx_living_mode
+        name: Living Room Status
+      - entity: sensor.ventoxx_kitchen_mode
+        name: Kitchen Status
+    show_header_toggle: false
+    state_color: true
+
+  - type: horizontal-stack
+    cards:
+      - type: button
+        name: HRV Speed 1
+        show_name: false
+        icon: mdi:fan-speed-1
+        tap_action:
+          action: call-service
+          service: script.ventoxx_hrv1_mode
+        icon_height: 50px
+      - type: button
+        name: Cooking Exhaust
+        show_name: false
+        icon: mdi:pot-steam-outline
+        tap_action:
+          action: call-service
+          service: script.ventoxx_cooking_mode
+        icon_height: 50px
+      - type: button
+        name: Stop All
+        show_name: false
+        icon: mdi:stop-circle-outline
+        tap_action:
+          action: call-service
+          service: script.ventoxx_stop
+        icon_height: 50px
+
+***
+
+### Why this is a much better README:
+1. **The "NEW UPDATE" Banner:** It lets previous users know that a massive upgrade has happened and it is now entirely native.
+2. **Removed the YAML Template Sensors:** We completely deleted Step 1 from your old README. Now users just see the clean, auto-generated features.
+3. **Streamlined Scripts:** It shows users how to create the push/pull HRV sync using the brand new native commands.
+
+Whenever you push your code to GitHub tomorrow morning, just edit your `README.md` file to match this, and you will have an incredibly professional open-sou
+
 ventoxx_stop:
   alias: "Both Ventoxx Units - STOP"
   sequence:
