@@ -82,7 +82,7 @@ This custom dashboard uses the automatically generated mode sensors to display w
 
 Add a Manual Card to your dashboard and paste this YAML:
 
-YAML
+```yaml
 type: vertical-stack
 cards:
   - type: entities
