@@ -76,6 +76,8 @@ ventoxx_cooking_mode:
         - service: fan.set_direction
           target: { entity_id: fan.ventoxx_kitchen }
           data: { direction: "reverse" }
+```
+---
 
 ## Example Dashboard Card
 This custom dashboard uses the automatically generated mode sensors to display what the system is doing, alongside buttons to trigger the custom scripts you built above.
@@ -121,6 +123,7 @@ cards:
           action: call-service
           service: script.ventoxx_stop
         icon_height: 50px
+```
 
 ***
 
