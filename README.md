@@ -142,3 +142,5 @@ ventoxx_stop:
         entity_id:
           - fan.ventoxx_living_room
           - fan.ventoxx_kitchen
+
+### This integration if for personal use only, not for comercial! If you like it, feel free to [buy me a cofee](https://buymeacoffee.com/raoultrifan).
